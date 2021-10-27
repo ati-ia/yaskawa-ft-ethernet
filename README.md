@@ -21,7 +21,7 @@ Sensor hardware kits are available for common sensor and robot model combination
       - ATI NETFTS (Ethernet F/T Sensor) MotoPlus Application
       - ATI NETFTS Robot Jobs for Force Searching, biasing F/T data, and applying Tool Transforms
       - Variable Configuration
-      - 
+
   - For Standard Pendant Users:
     - ATI NETFTS (Ethernet F/T Sensor) MotoPlus Application
     - ATI NETFTS Robot Jobs for Force Searching, biasing F/T data, and applying Tool Transforms
