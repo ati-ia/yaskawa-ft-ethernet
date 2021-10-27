@@ -13,7 +13,7 @@ Sensor hardware kits are available for common sensor and robot model combination
   - Sensor with communication electronics compatible with Yaskawa robots
   - Cables
   - Interface plate(s) and fasteners for mounting to the robot
-  - Drawings available
+  - Mechanical drawings available
 ## Software from ATI for Yaskawa Users:
   - For Smart Pendant Users:
     - ATI Yaskawa-Ready YIP which includes:
