@@ -1,0 +1,77 @@
+/JOB
+//NAME NETFTS_FORCESEARCH
+///FOLDERNAME NETFTS_FORCETORQUESENSOR
+//POS
+///NPOS 0,0,0,0,0,0
+//ARGINFO
+///ARGTYPE B,B,D,D,R,B,,
+///COMMENT
+DIR
+TYPE
+DIST
+SPEED
+FORCE
+TOOL FRAME
+
+
+//INST
+///DATE 2021/10/18 13:48
+///COMM Used by Ethernet FT Sensor Ext
+///ATTR SC,RW
+///GROUP1 RB1
+///LVARS 5,0,2,1,0,1,0,0
+NOP
+'Default 'Target Met' IO to OFF
+DOUT OT#(B081) OFF
+GETARG LB[2] IARG#(1)
+GETARG LB[1] IARG#(2)
+GETARG LD[0] IARG#(3)
+GETARG LD[1] IARG#(4)
+GETARG LR[0] IARG#(5)
+GETARG LB[4] IARG#(6)
+'CREATE POS FOR IMOV
+' Get current position XYZ
+GETS LPX000 $PX001
+' Convert to tool frame
+CNVRT LPX000 LPX000 TF TL#(LB004)
+' Initialize pos to zero
+SUB LP000 LP000
+'SET VALUES
+'B[80] = n
+'Distance &   Direction
+SETE LP000 (LB002) LD[0]
+'Search Type (Bvar[n+6])
+SET LB[0] B[80]
+ADD LB[0] 6
+SET B[LB000] LB[1]
+'Target Force (Rvar[n])
+SET R[LB000] LR[0]
+'Search Direction/Axis (Bvar[n+5]
+SET LB[0] B[80]
+ADD LB[0] 5
+SET B[LB000] LB[2]
+'Direction (Dvar[n+1])
+SET LB[0] B[80]
+ADD LB[0] 1
+SET D[LB000] LD[0]
+'Speed (Dvar[n+2])
+SET LB[0] B[80]
+ADD LB[0] 2
+SET D[LB000] LD[1]
+'Confirm DIO OFF before starting
+WAIT IN#(B081)=OFF
+'Task Ctrl (Bvar[n+4])
+SET LB[0] B[80]
+ADD LB[0] 4
+*LABEL
+SET B[LB000] 1
+IFTHENEXP IN#(B081)=ON
+	 JUMP *ENDLABEL
+ENDIF
+'Rel Motion;Stop if Target met
+IMOV LP000 V=LD[1] TF UNTIL IN#(B081)=ON
+*ENDLABEL
+'Kill target monitoring Task Ctrl
+SET B[LB000] 0
+DOUT OT#(B081) OFF
+END

@@ -1,0 +1,39 @@
+/JOB
+//NAME NETFTS-DEMO-X&YSEARCH
+///FOLDERNAME NETFTS_FORCETORQUESENSOR
+//POS
+///NPOS 0,0,0,2,0,0
+///TOOL 0
+///POSTYPE PULSE
+///PULSE
+P00080=0,0,0,0,-65536,0
+P00081=0,-24273,-36409,0,-50972,0
+//INST
+///DATE 2021/10/18 14:35
+///COMM Sample program-CAUTION:MOTION
+///ATTR SC,RW
+///GROUP1 RB1
+NOP
+'CAUTION: Demo includes motion!
+'Check the 2 MOVJs before use!
+'IMOV in +X relative to TF #0
+'IMOV in +Y relative to TF #0
+'Check ToolFrame#0 before use!
+' 
+'Joint: 0; 0; 0; 0; -90; 0)
+MOVJ P080 VJ=5.00
+'Zero Tool Transform
+'(Sensor's axes match its labels)
+CALL JOB:NETFTS_TT ARGF0 ARGF0 ARGF0 ARGF0 ARGF0 ARGF0 ARGF3
+'Bias (Zero/Tare) F/T data
+CALL JOB:NETFTS_BIAS
+'Search in +X until Fx<-10N
+CALL JOB:NETFTS_FORCESEARCH ARGF1 ARGF2 ARGF100000 ARGF150 ARGF-10 ARGF0
+' 
+'Joint: 0; 0; -20; -40; -70; 0)
+MOVJ P081 VJ=5.00
+'Bias (Zero/Tare) F/T data
+CALL JOB:NETFTS_BIAS
+'Search in +Y until Fy<-10N
+CALL JOB:NETFTS_FORCESEARCH ARGF2 ARGF2 ARGF100000 ARGF150 ARGF-10 ARGF0
+END
