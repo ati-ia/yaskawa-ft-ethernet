@@ -8,7 +8,7 @@ Contact: ftsupport@ati-ia.com
 More info: www.ati-ia.com/YaskawaFTSW 
 
 ## ATI’s Yaskawa-Ready F/T Sensor Kits:
-Sensor hardware kits are available for common sensor and robot model combinations. Other sensor models may also be used, but accesories like compatible cables and interface plates (if available) will need to be purchased individually.
+Sensor hardware kits are available for common sensor and robot model combinations. Other sensor models may also be used, but accessories like compatible cables and interface plates (if available) will need to be purchased individually.
 ### Kits Include:
   - Sensor with communication electronics compatible with Yaskawa robots
   - Interface plate(s) and fasteners for mounting to the robot
