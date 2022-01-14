@@ -1,5 +1,5 @@
 # ATI Ethernet Force/Torque Sensors for Yaskawa Robots
-This `ati-ia/yaskawa-ft-ethernet` repository contains a Smart Pendant YIP as well as a standalone MotoPlus Application and robot jobs. These software tools are compatible with Ethernet-Axia sensors and "NET F/T" sensors using a Net Box.  Not all files are needed for all installations. Refer to the [yaskawa-ft-ethernet Wiki](https://github.com/ati-ia/yaskawa-ft-ethernet/wiki) for system requirements, install instructions, and other software documentation.
+This `ati-ia/yaskawa-ft-ethernet` repository contains a Smart Pendant YIP as well as a standalone MotoPlus Application and robot Jobs. These software tools are compatible with Ethernet-Axia sensors and "NET F/T" sensors using a Net Box.  Not all files are needed for all installations. Refer to the [yaskawa-ft-ethernet Wiki](https://github.com/ati-ia/yaskawa-ft-ethernet/wiki) for system requirements, install instructions, and other software documentation.
 
 To Download: Use git or click the green Code button > Download ZIP 
 
@@ -15,6 +15,7 @@ Sensor hardware kits are available for common sensor and robot model combination
   - Sensor with communication electronics compatible with Yaskawa robots
   - Interface plate(s) and fasteners for mounting to the robot
   - Cables
+  - Drawings and 3D models are available from ATI
 ## Software from ATI for Yaskawa Users:
   - For Smart Pendant Users:
     - ATI Yaskawa-Ready YIP which includes:
